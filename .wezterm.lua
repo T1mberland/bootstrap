@@ -49,9 +49,24 @@ config.keys = {
 		action = act.ActivateTabRelative(1),
 	},
 	{
+		key = "h",
+		mods = "ALT",
+		action = act.ActivateTabRelative(-1),
+	},
+	{
 		key = "Enter",
 		mods = "ALT",
 		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "n",
+		mods = "ALT",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "w",
+		mods = "ALT",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
 	},
 }
 
