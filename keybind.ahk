@@ -1,0 +1,110 @@
+!1::  ; Alt+1 -> terminal(wezterm)
+{
+    if WinExist("ahk_class org.wezfurlong.wezterm")
+        WinActivate
+    else
+        Run A_ProgramFiles "\WezTerm\wezterm-gui.exe" ; Wezterm : "C:\\Program Files\\WezTerm\\wezterm-gui.exe"
+        ;Run A_ProgramFiles "\WezTerm\wezterm-gui.exe" 
+}
+
+!2::
+{
+    if WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS")
+        WinActivate
+}
+
+!9:: { ; Alt+9
+    if WinExist("ahk_class Chrome_WidgetWin_1")
+        WinActivate
+    else
+        Run EnvGet("LOCALAPPDATA") "\Vivaldi\Application\vivaldi.exe"
+}
+
+!0::  ; Alt+0
+{
+    if WinExist("ahk_class Chrome_WidgetWin_1")
+        WinActivate
+    else
+        Run EnvGet("LOCALAPPDATA") "\Vivaldi\Application\vivaldi.exe"
+}
+
+; 「￥（バックスラッシュ）」キー ==> バックスペース
+sc7D::Send "{BS}"
+
+; 
+sc73::Send "\"
+
+; 無変換 + H/J/K/L で矢印キー
+sc07B & h::Send "{Left}"
+sc07B & j::Send "{Down}"
+sc07B & k::Send "{Up}"
+sc07B & l::Send "{Right}"
+
+; 変換->backspace
+;sc079::Send "{BS}"
+
+; 無変換+(U/I/O/P) -> backspace
+sc07B & u::Send "{BS}"
+sc07B & i::Send "{BS}"
+sc07B & o::Send "{BS}"
+sc07B & p::Send "{BS}"
+
+; 変換+(J/K/L/U/I/O/P) -> backspace
+sc079 & j::Send "{BS}"
+sc079 & k::Send "{BS}"
+sc079 & l::Send "{BS}"
+
+sc079 & u::Send "{BS}"
+sc079 & i::Send "{BS}"
+sc079 & o::Send "{BS}"
+sc079 & p::Send "{BS}"
+
+; ALT + H/J/K/L で矢印キーx5
+!h::Send "{Left 5}"
+!j::Send "{Down 5}"
+!k::Send "{Up 5}"
+!l::Send "{Right 5}"
+
+;-----------------------------------------------------------
+; IMEの状態の取得
+;   WinTitle="A"    対象Window
+;   戻り値          1:ON / 0:OFF
+;-----------------------------------------------------------
+IME_GET(WinTitle:="A")  {
+    hwnd := WinExist(WinTitle)
+    if  (WinActive(WinTitle))   {
+        ptrSize := !A_PtrSize ? 4 : A_PtrSize
+        cbSize := 4+4+(PtrSize*6)+16
+        stGTI := Buffer(cbSize,0)
+        NumPut("DWORD", cbSize, stGTI.Ptr,0)   ;   DWORD   cbSize;
+        hwnd := DllCall("GetGUIThreadInfo", "Uint",0, "Uint", stGTI.Ptr)
+                 ? NumGet(stGTI.Ptr,8+PtrSize,"Uint") : hwnd
+    }
+    return DllCall("SendMessage"
+          , "UInt", DllCall("imm32\ImmGetDefaultIMEWnd", "Uint",hwnd)
+          , "UInt", 0x0283  ;Message : WM_IME_CONTROL
+          ,  "Int", 0x0005  ;wParam  : IMC_GETOPENSTATUS
+          ,  "Int", 0)      ;lParam  : 0
+}
+
+IME_Set(state, hwnd := WinExist("A")) {
+    if WinActive("A") {
+        cbSize := 4 + 4 + (A_PtrSize * 6) + 16
+        stGTI := Buffer(cbSize, 0)
+        NumPut("UInt", cbSize, stGTI, 0)
+        if DllCall("GetGUIThreadInfo", "UInt", 0, "Ptr", stGTI)
+            hwnd := NumGet(stGTI, 8 + A_PtrSize, "Ptr")
+    }
+    hIME := DllCall("imm32\ImmGetDefaultIMEWnd", "Ptr", hwnd, "Ptr")
+    return DllCall("SendMessage", "Ptr", hIME
+        , "UInt", 0x0283   ; WM_IME_CONTROL
+        , "Ptr",  0x0006   ; IMC_SETOPENSTATUS
+        , "Ptr",  state ? 1 : 0)
+}
+
+; CapsLockでIMEトグル
+CapsLock::
+{
+    s := IME_Get()
+    IME_Set(!s)
+}
