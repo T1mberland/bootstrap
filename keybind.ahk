@@ -14,15 +14,15 @@
 }
 
 !9:: { ; Alt+9
-    if WinExist("ahk_class Chrome_WidgetWin_1")
+    if WinExist("ahk_exe Obsidian.exe")
         WinActivate
     else
-        Run EnvGet("LOCALAPPDATA") "\Vivaldi\Application\vivaldi.exe"
+        Run EnvGet("LOCALAPPDATA") "\Programs\Obsidian\Obsidian.exe"
 }
 
 !0::  ; Alt+0
 {
-    if WinExist("ahk_class Chrome_WidgetWin_1")
+    if WinExist("ahk_exe vivaldi.exe")
         WinActivate
     else
         Run EnvGet("LOCALAPPDATA") "\Vivaldi\Application\vivaldi.exe"
@@ -30,8 +30,7 @@
 
 ; 「￥（バックスラッシュ）」キー ==> バックスペース
 sc7D::Send "{BS}"
-
-; 
+; 「ろ」キー は バックスペース
 sc73::Send "\"
 
 ; 無変換 + H/J/K/L で矢印キー
@@ -103,11 +102,13 @@ IME_Set(state, hwnd := WinExist("A")) {
 }
 
 ; CapsLockでIMEトグル
-CapsLock::
-{
-    s := IME_Get()
-    IME_Set(!s)
-}
+;CapsLock::
+;{
+    ;s := IME_Get()
+    ;IME_Set(!s)
+;}
+
+CapsLock::Send "{F24}"
 
 ; 変換 -> IME ON
 sc079::
