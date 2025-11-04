@@ -34,10 +34,10 @@ sc7D::Send "{BS}"
 sc73::Send "\"
 
 ; 無変換 + H/J/K/L で矢印キー
-;sc07B & h::Send "{Left}"
-;sc07B & j::Send "{Down}"
-;sc07B & k::Send "{Up}"
-;sc07B & l::Send "{Right}"
+sc07B & h::Send "{Left}"
+sc07B & j::Send "{Down}"
+sc07B & k::Send "{Up}"
+sc07B & l::Send "{Right}"
 
 ; 変換->backspace
 ;sc079::Send "{BS}"
@@ -49,14 +49,14 @@ sc73::Send "\"
 ;sc07B & p::Send "{BS}"
 
 ; 変換+(J/K/L/U/I/O/P) -> backspace
-;sc079 & j::Send "{BS}"
-;sc079 & k::Send "{BS}"
-;sc079 & l::Send "{BS}"
+sc079 & j::Send "{BS}"
+sc079 & k::Send "{BS}"
+sc079 & l::Send "{BS}"
 
-;sc079 & u::Send "{BS}"
-;sc079 & i::Send "{BS}"
-;sc079 & o::Send "{BS}"
-;sc079 & p::Send "{BS}"
+sc079 & u::Send "{BS}"
+sc079 & i::Send "{BS}"
+sc079 & o::Send "{BS}"
+sc079 & p::Send "{BS}"
 
 ; ALT + H/J/K/L で矢印キー
 ;!h::Send "{Left}"
@@ -102,30 +102,30 @@ IME_Set(state, hwnd := WinExist("A")) {
 }
 
 ; CapsLockでIMEトグル
-;CapsLock::
-;{
-    ;s := IME_Get()
-    ;IME_Set(!s)
-;}
+CapsLock::
+{
+    s := IME_Get()
+    IME_Set(!s)
+}
 
-CapsLock::Send "{F24}"
+;CapsLock::Send "{F24}"
 
 ; 変換 -> IME ON
-sc079::
-{
-    IME_Set(1)
-}
+;sc079::
+;{
+    ;IME_Set(1)
+;}
 
 ; 無変換 -> IME OFF
-sc07B::
-{
-    IME_Set(0)
-}
+;sc07B::
+;{
+    ;IME_Set(0)
+;}
 
 ; Shift+無変換 -> BS?
 ; Shift+変換 -> BS?
 ; Shift+カタカナひらがなローマ字 -> BS?
-+sc07B::Send "{BS}"
-+sc079::Send "{BS}"
-+sc070::Send "{BS}"
+;+sc07B::Send "{BS}"
+;+sc079::Send "{BS}"
+;+sc070::Send "{BS}"
 
