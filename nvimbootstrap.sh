@@ -14,7 +14,8 @@ fi
 
 # Dry run only for now.
 printf "This script will run the following commands:\n"
-printf "\tmv ~/.config/nvim ~/.config/nvim.BACKUP.${today}\n"
+printf "\tmv ~/.config/nvim ~/.config/nvim.BACKUP.${today} 2>/dev/null || true\n"
+printf "\tmkdir -p ~/.config\n"
 printf "\tcd ~/.config\n"
 printf '\tgit clone "https://github.com/T1mberland/init.lua.git" --depth 1\n'
 printf '\tmv init.lua nvim\n'
@@ -28,8 +29,11 @@ case "$ans" in
   ;;
 esac
 
-mv ~/.config/nvim ~/.config/nvim.BACKUP.${today}
-echo "Ran : mv ~/.config/nvim ~/.config/nvim.BACKUP.${today}"
+mv ~/.config/nvim ~/.config/nvim.BACKUP.${today} 2>/dev/null || true
+echo "Ran : mv ~/.config/nvim ~/.config/nvim.BACKUP.${today} 2>/dev/null || true"
+
+mkdir -p ~/.config
+printf "Ran : mkdir -p ~/.config\n"
 
 cd ~/.config
 echo "Ran : cd ~/.config"
