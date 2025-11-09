@@ -49,14 +49,14 @@ sc07B & l::Send "{Right}"
 ;sc07B & p::Send "{BS}"
 
 ; 変換+(J/K/L/U/I/O/P) -> backspace
-sc079 & j::Send "{BS}"
-sc079 & k::Send "{BS}"
-sc079 & l::Send "{BS}"
+;sc079 & j::Send "{BS}"
+;sc079 & k::Send "{BS}"
+;sc079 & l::Send "{BS}"
 
-sc079 & u::Send "{BS}"
-sc079 & i::Send "{BS}"
-sc079 & o::Send "{BS}"
-sc079 & p::Send "{BS}"
+;sc079 & u::Send "{BS}"
+;sc079 & i::Send "{BS}"
+;sc079 & o::Send "{BS}"
+;sc079 & p::Send "{BS}"
 
 ; ALT + H/J/K/L で矢印キー
 ;!h::Send "{Left}"
@@ -102,7 +102,10 @@ IME_Set(state, hwnd := WinExist("A")) {
 }
 
 ; CapsLockでIMEトグル
-CapsLock::
+CapsLock::Send "{Ctrl}"
+
+; 変換でIMEトグル
+sc079::
 {
     s := IME_Get()
     IME_Set(!s)
