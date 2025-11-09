@@ -101,15 +101,22 @@ IME_Set(state, hwnd := WinExist("A")) {
         , "Ptr",  state ? 1 : 0)
 }
 
-; CapsLockでIMEトグル
-CapsLock::Send "{Ctrl}"
+; CapsLock->Ctrl
+;CapsLock::Send "{Ctrl}"
 
-; 変換でIMEトグル
-sc079::
+; CAPSLOCK でIMEトグル
+CapsLock::
 {
     s := IME_Get()
     IME_Set(!s)
 }
+
+; 変換でIMEトグル
+;sc079::
+;{
+    ;s := IME_Get()
+    ;IME_Set(!s)
+;}
 
 ;CapsLock::Send "{F24}"
 
