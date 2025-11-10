@@ -42,6 +42,9 @@ sc07B & l::Send "{Right}"
 ; 変換->backspace
 ;sc079::Send "{BS}"
 
+; 変換->Ctrl
+sc079::LCtrl
+
 ; 無変換+(U/I/O/P) -> backspace
 ;sc07B & u::Send "{BS}"
 ;sc07B & i::Send "{BS}"
