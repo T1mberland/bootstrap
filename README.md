@@ -36,3 +36,26 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y zsh
 chsh -s "$(which zsh)"
 ```
+
+## Ubuntu
+
+- Install Rust : https://rust-lang.org/tools/install/
+
+```
+cargo install ripgrep
+```
+
+
+
+```
+cargo install zoxide --locked
+```
+
+```
+cargo install --locked --features clipboard broot
+```
+
+
+```
+cargo install --locked
+```
