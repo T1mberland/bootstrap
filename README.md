@@ -45,8 +45,6 @@ chsh -s "$(which zsh)"
 cargo install ripgrep
 ```
 
-
-
 ```
 cargo install zoxide --locked
 ```
@@ -55,7 +53,11 @@ cargo install zoxide --locked
 cargo install --locked --features clipboard broot
 ```
 
-
 ```
 cargo install --locked
 ```
+
+
+## Fedora
+
+
