@@ -11,6 +11,8 @@
 {
     if WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS")
         WinActivate
+    else
+        Run A_ProgramFiles "\PowerShell\7\pwsh.exe" ; Wezterm : "C:\\Program Files\\WezTerm\\wezterm-gui.exe"
 }
 
 !9:: { ; Alt+9
