@@ -96,21 +96,24 @@ $wingetPkgs = $wingetPkgs | Where-Object Enabled
 $configFiles = Show-Menu -Items $configAll
 $configFiles = $configFiles | Where-Object Enabled
 $cloneAndRun = @'
-if (!(Test-Path "$env:LOCALAPPDATA\nvim")) {
-    git clone https://github.com/T1mberland/init.lua.git "$env:LOCALAPPDATA\nvim"
-}
+git clone https://github.com/T1mberland/init.lua.git "$env:LOCALAPPDATA\nvim"
 nvim
 '@
 
-# 必要なツールをインストール
 foreach ($id in $wingetPkgs) {
   Write-Host "Downloading and installing $($id.Name)..."
   winget install --id "$($id.Name)" -e --source winget --accept-source-agreements --accept-package-agreements
 }
 
-# 設定ファイルダウンロード
 foreach ($configFile in $configFiles) {
   if ($configFile.Name -eq 'Neovim (~/AppData/Local/nvim/init.lua)') {
+    if (Test-Path "$env:LOCALAPPDATA\nvim") {
+      Write-Host "Directory $env:LOCALAPPDATA\nvim already exists."
+      $timestamp = Get-Date -Format o | ForEach-Object { $_ -replace ":", "." }
+      Write-Host "Moving $env:LOCALAPPDATA\nvim to $env:LOCALAPPDATA\nvim_$timestamp"
+      Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim_$timestamp
+    }
+
     Write-Host "Cloning Neovim config and launching Neovim..." 
     Start-Process powershell.exe -ArgumentList '-NoExit', '-Command', $cloneAndRun
   }
