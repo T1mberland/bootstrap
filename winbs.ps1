@@ -25,7 +25,7 @@ function Show-Menu {
 
   :MenuLoop while ($true) {
     Clear-Host
-    Write-Host "Use $esc[4m↑↓$esc[0m to move, $esc[4mSpace$esc[0m to toggle, $esc[4ma$esc[0m to select/deselect all."
+    Write-Host "Use $esc[4mjk$esc[0m to move, $esc[4mSpace$esc[0m to toggle, $esc[4ma$esc[0m to select/deselect all."
     Write-Host "$esc[4mEnter$esc[0m to confirm, $esc[4mq$esc[0m to quit.`n"
 
     for ($i = 0; $i -lt $Items.Count; $i++) {
