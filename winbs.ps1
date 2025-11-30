@@ -6,8 +6,10 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'BurntSushi.ripgrep.MSVC'; Enabled = $true }
   [pscustomobject]@{ Name = 'ajeetdsouza.zoxide'; Enabled = $true }
   [pscustomobject]@{ Name = 'sharkdp.fd'; Enabled = $true }
+  [pscustomobject]@{ Name = 'eza-community.eza'; Enabled = $true }
   [pscustomobject]@{ Name = 'AutoHotkey.AutoHotkey'; Enabled = $true }
   [pscustomobject]@{ Name = 'SumatraPDF.SumatraPDF'; Enabled = $true }
+  [pscustomobject]@{ Name = 'flxzt.rnote'; Enabled = $false }
   [pscustomobject]@{ Name = 'Vivaldi.Vivaldi'; Enabled = $false }
 )
 
