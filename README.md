@@ -11,7 +11,7 @@ GoogleIME: https://www.google.co.jp/ime/
 - 以下のコマンドを PowerShell (v1.0) で実行
 
 ```powershell
-& ([scriptblock]::Create((irm "https://t1mberland.github.io/bootstrap/winbs.ps1")))
+& ([scriptblock]::Create((irm "https://t1mberland.github.io/bootstrap/win.ps1")))
 ```
 
 
