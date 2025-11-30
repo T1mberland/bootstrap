@@ -6,28 +6,20 @@ NerdFont: https://www.nerdfonts.com/
 
 GoogleIME: https://www.google.co.jp/ime/
 
-AutoHotKey: https://github.com/AutoHotkey/AutoHotkey/releases
-
-SumatraPDF: https://www.sumatrapdfreader.org/downloadafter
+- Win11Debloat : https://github.com/Raphire/Win11Debloat
 
 - 以下のコマンドを PowerShell (v1.0) で実行
 
 ```powershell
-$(curl https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/.wezterm.lua).Content > ~/.wezterm.lua
-$(curl https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/keybindings.ahk).Content > ~/keybindings.ahk
-winget install Microsoft.PowerShell
-winget install wez.wezterm
-winget install --id Git.Git -e --source winget
-winget install BurntSushi.ripgrep.MSVC
-winget install flxzt.rnote
+& ([scriptblock]::Create((irm "https://t1mberland.github.io/bootstrap/winbs.ps1")))
 ```
+
 
 - 以下をadmin権限でpowershellで実行
 
 ```powershell
 wsl --install
 ```
-
 
 - install zsh
 
