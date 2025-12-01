@@ -6,7 +6,7 @@ NerdFont: https://www.nerdfonts.com/
 
 GoogleIME: https://www.google.co.jp/ime/
 
-- Win11Debloat : https://github.com/Raphire/Win11Debloat
+Win11Debloat : https://github.com/Raphire/Win11Debloat
 
 - 以下のコマンドを PowerShell (v1.0) で実行
 
