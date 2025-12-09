@@ -8,6 +8,8 @@ GoogleIME: https://www.google.co.jp/ime/
 
 Win11Debloat : https://github.com/Raphire/Win11Debloat
 
+OhMyZsh : https://ohmyz.sh/#install
+
 - 以下のコマンドを PowerShell (v1.0) で実行
 
 ```powershell
@@ -18,38 +20,20 @@ Win11Debloat : https://github.com/Raphire/Win11Debloat
 - 以下をadmin権限でpowershellで実行
 
 ```powershell
-wsl --install
+wsl --install fedora
 ```
-
-- install zsh
 
 ```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y zsh
-chsh -s "$(which zsh)"
+sudo dnf upgrade
+sudo dnf install ncurses git neovim python3-neovim
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/nvimbs.sh)"
 ```
 
-## Ubuntu
-
-- Install Rust : https://rust-lang.org/tools/install/
+- Zoxode
 
 ```
-cargo install ripgrep
+sudo dnf install zoxide
+echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
 ```
-
-```
-cargo install zoxide --locked
-```
-
-```
-cargo install --locked --features clipboard broot
-```
-
-```
-cargo install --locked
-```
-
-
-## Fedora
 
 
