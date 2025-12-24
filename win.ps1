@@ -2,6 +2,7 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'Neovim.Neovim'; Enabled = $true }
   [pscustomobject]@{ Name = 'Git.Git'; Enabled = $true }
   [pscustomobject]@{ Name = 'Microsoft.PowerShell'; Enabled = $true }
+  [pscustomobject]@{ Name = 'Rustlang.Rustup'; Enabled = $false }
   [pscustomobject]@{ Name = 'wez.wezterm'; Enabled = $true }
   [pscustomobject]@{ Name = 'BurntSushi.ripgrep.MSVC'; Enabled = $true }
   [pscustomobject]@{ Name = 'ajeetdsouza.zoxide'; Enabled = $true }
@@ -12,6 +13,7 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'flxzt.rnote'; Enabled = $false }
   [pscustomobject]@{ Name = 'Microsoft.VisualStudioCode'; Enabled = $false }
   [pscustomobject]@{ Name = 'Vivaldi.Vivaldi'; Enabled = $false }
+  [pscustomobject]@{ Name = 'Obsidian.Obsidian'; Enabled = $false }
 )
 
 $configAll = @(
