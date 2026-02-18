@@ -12,7 +12,15 @@
     if WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS")
         WinActivate
     else
-        Run A_ProgramFiles "\PowerShell\7\pwsh.exe" ; Wezterm : "C:\\Program Files\\WezTerm\\wezterm-gui.exe"
+        Run A_ProgramFiles "\PowerShell\7\pwsh.exe"
+}
+
+!3::
+{
+    if WinExist("ahk_exe Code.exe")
+        WinActivate
+    else
+        Run( EnvGet("LocalAppData") "\Programs\Microsoft VS Code\Code.exe" )
 }
 
 !9:: { ; Alt+9
@@ -143,4 +151,5 @@ CapsLock::
 ;+sc07B::Send "{BS}"
 ;+sc079::Send "{BS}"
 ;+sc070::Send "{BS}"
+
 
