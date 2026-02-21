@@ -4,7 +4,6 @@
         WinActivate
     else
         Run A_ProgramFiles "\WezTerm\wezterm-gui.exe" ; Wezterm : "C:\\Program Files\\WezTerm\\wezterm-gui.exe"
-        ;Run A_ProgramFiles "\WezTerm\wezterm-gui.exe" 
 }
 
 !2::
@@ -23,6 +22,13 @@
         Run( EnvGet("LocalAppData") "\Programs\Microsoft VS Code\Code.exe" )
 }
 
+!8:: { ; Alt+8
+    if WinExist("ahk_exe SumatraPDF.exe")
+        WinActivate
+    else
+        Run EnvGet("LOCALAPPDATA") "\SumatraPDF\SumatraPDF.exe"
+}
+
 !9:: { ; Alt+9
     if WinExist("ahk_exe Obsidian.exe")
         WinActivate
@@ -36,6 +42,14 @@
         WinActivate
     else
         Run EnvGet("LOCALAPPDATA") "\Vivaldi\Application\vivaldi.exe"
+}
+
+!-::  ; Alt+-
+{
+    if WinExist("ahk_exe nvim.exe")
+        WinActivate
+    else
+        Run A_ProgramFiles "\Neovim\bin\nvim.exe"
 }
 
 ; 「￥（バックスラッシュ）」キー ==> バックスペース
