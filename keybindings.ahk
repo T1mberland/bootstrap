@@ -23,7 +23,7 @@
 }
 
 !8:: { ; Alt+8
-    if WinExist("ahk_exe SumatraPDF.exe")
+    if WinExist("ahk_class SUMATRA_PDF_FRAME")
         WinActivate
     else
         Run EnvGet("LOCALAPPDATA") "\SumatraPDF\SumatraPDF.exe"
