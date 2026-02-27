@@ -11,7 +11,7 @@
     if WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS")
         WinActivate
     else
-        Run A_ProgramFiles "\PowerShell\7\pwsh.exe"
+        Run EnvGet("LOCALAPPDATA") "\Microsoft\WindowsApps\wt.exe -p PowerShell"
 }
 
 !3::
@@ -49,7 +49,7 @@
     if WinExist("ahk_exe nvim.exe")
         WinActivate
     else
-        Run A_ProgramFiles "\Neovim\bin\nvim.exe"
+        Run EnvGet("LOCALAPPDATA") "\Microsoft\WindowsApps\wt.exe -p PowerShell nvim.exe"
 }
 
 ; 「￥（バックスラッシュ）」キー ==> バックスペース
