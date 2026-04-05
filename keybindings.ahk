@@ -46,7 +46,7 @@
 
 !-::  ; Alt+-
 {
-    if WinExist("ahk_exe nvim.exe")
+    if WinExist("ahk_exe alacritty.exe")
         WinActivate
     else
         ;Run EnvGet("LOCALAPPDATA") "\Microsoft\WindowsApps\wt.exe -p PowerShell nvim.exe"
