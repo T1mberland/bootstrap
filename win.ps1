@@ -4,6 +4,7 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'Microsoft.PowerShell'; Enabled = $true }
   [pscustomobject]@{ Name = 'Rustlang.Rustup'; Enabled = $false }
   [pscustomobject]@{ Name = 'wez.wezterm'; Enabled = $true }
+  [pscustomobject]@{ Name = 'Alacritty.Alacritty'; Enabled = $true }
   [pscustomobject]@{ Name = 'BurntSushi.ripgrep.MSVC'; Enabled = $true }
   [pscustomobject]@{ Name = 'ajeetdsouza.zoxide'; Enabled = $true }
   [pscustomobject]@{ Name = 'sharkdp.fd'; Enabled = $true }
@@ -21,6 +22,7 @@ $configAll = @(
   [pscustomobject]@{ Name = 'Neovim (~/AppData/Local/nvim/init.lua)'; Enabled = $false }
   [pscustomobject]@{ Name = 'AutoHotKey (~/Desktop/keybindings.ahk)'; Enabled = $false }
   [pscustomobject]@{ Name = 'Wezterm (~/.wezterm.lua)'; Enabled = $false }
+  [pscustomobject]@{ Name = 'Alacritty (~/AppData/Roaming/Alacritty/alacritty.toml)'; Enabled = $false }
 )
 
 function Show-Menu {
@@ -132,5 +134,11 @@ foreach ($configFile in $configFiles) {
     Invoke-WebRequest `
       'https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/.wezterm.lua' `
       -OutFile "$HOME/.wezterm.lua"
+  }
+  elseif ($configFile.Name -eq 'Alacritty (~/AppData/Roaming/Alacritty/alacritty.toml)') {
+    Write-Host "Downloading Alacritty config..."
+    Invoke-WebRequest `
+      'https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/alacritty.toml' `
+      -OutFile "$env:APPDATA/Alacritty/alacritty.toml"
   }
 }

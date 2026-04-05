@@ -1,0 +1,8 @@
+[font]
+normal = { family = "Hasklug Nerd Font", style = "Regular" }
+
+[window]
+dimensions = { columns = 105, lines = 30 }
+
+[terminal]
+shell = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"

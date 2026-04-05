@@ -49,7 +49,8 @@
     if WinExist("ahk_exe nvim.exe")
         WinActivate
     else
-        Run EnvGet("LOCALAPPDATA") "\Microsoft\WindowsApps\wt.exe -p PowerShell nvim.exe"
+        ;Run EnvGet("LOCALAPPDATA") "\Microsoft\WindowsApps\wt.exe -p PowerShell nvim.exe"
+        Run "C:\Program Files\Alacritty\alacritty.exe -e nvim.exe"
 }
 
 ; 「￥（バックスラッシュ）」キー ==> バックスペース
@@ -165,5 +166,4 @@ CapsLock::
 ;+sc07B::Send "{BS}"
 ;+sc079::Send "{BS}"
 ;+sc070::Send "{BS}"
-
 
