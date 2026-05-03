@@ -14,6 +14,7 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'SumatraPDF.SumatraPDF'; Enabled = $true }
   [pscustomobject]@{ Name = 'flxzt.rnote'; Enabled = $false }
   [pscustomobject]@{ Name = 'Microsoft.VisualStudioCode'; Enabled = $false }
+  [pscustomobject]@{ Name = 'ZedIndustries.Zed'; Enabled = $true }
   [pscustomobject]@{ Name = 'Vivaldi.Vivaldi'; Enabled = $false }
   [pscustomobject]@{ Name = 'Obsidian.Obsidian'; Enabled = $false }
 )
