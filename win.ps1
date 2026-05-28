@@ -17,6 +17,7 @@ $wingetAllPkgs = @(
   [pscustomobject]@{ Name = 'ZedIndustries.Zed'; Enabled = $true }
   [pscustomobject]@{ Name = 'Vivaldi.Vivaldi'; Enabled = $false }
   [pscustomobject]@{ Name = 'Obsidian.Obsidian'; Enabled = $false }
+  [pscustomobject]@{ Name = 'GermanCoding.SyncTrayzor'; Enabled = $false }
 )
 
 $configAll = @(
