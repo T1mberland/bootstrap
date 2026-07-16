@@ -26,7 +26,7 @@ wsl --install fedora
 ```bash
 sudo dnf upgrade
 sudo dnf install ncurses git neovim python3-neovim
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/T1mberland/bootstrap/refs/heads/master/nvimbs.sh)"
+curl -fsSL https://raw.githubusercontent.com/T1mberland/bootstrap/master/nvim.sh | bash
 ```
 
 - Zoxode
@@ -34,6 +34,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/T1mberland/bootstrap/refs/
 ```
 sudo dnf install zoxide
 echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
+```
+
+## LINUX
+
+```
+curl -fsSL http://bs.bootstrap.com/nvim.sh | bash
+```
+
+or
+
+```
+curl -fsSL https://raw.githubusercontent.com/T1mberland/bootstrap/master/nvim.sh | bash
 ```
 
 
